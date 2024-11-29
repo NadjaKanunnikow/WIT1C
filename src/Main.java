@@ -48,14 +48,36 @@ public class Main {
 //        System.out.printf("Hallo %s, Du bist %d Jahre alt und Deine Glückszahl ist %f.1", name, age, happyNumber);
 
         Scanner s = new Scanner(System.in);
-        System.out.printf("Matrix von 0 bis 99:\n");
-        int numberMatrix = s.nextInt();
         System.out.printf("Zahl von 2 bis 9:\n");
         int numberZahl = s.nextInt();
-        for (int i = 0; i < numberMatrix; i++) {
-            System.out.printf("%d %d", i, i+1);
+        int numberMatrix = 99;
+        int schleife = 9;
+        int z = 0;
+        for (int i = 0; i <= numberMatrix; i++) {
+            String stringZahl = Integer.toString(i);
+            if (stringZahl.length() == 1) {
+                stringZahl += " ";
+            }
+            String numberZahlString = Integer.toString(numberZahl);
+            for (int h = 0; h < stringZahl.length(); h++) {
+                if (stringZahl.contains(numberZahlString)) {
+                    stringZahl = "* ";
+                }
+            }
+            if (i % numberZahl == 0) {
+                stringZahl = "* ";
+            }
+            if (i == 0) {
+                stringZahl = "0 ";
+            }
+            if (z < schleife) {
+                System.out.printf("%s ", stringZahl);
+                z++;
+            }
+            else {
+                System.out.printf("%s \n", stringZahl);
+                z = 0;
+            }
         }
-
-
     }
 }
